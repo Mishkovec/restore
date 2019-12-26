@@ -1,10 +1,16 @@
 import React from 'react';
-import {withBookStoreService} from '../hoc';
-import BookStoreService from '../../services';
+import { Route, Switch } from 'react-router-dom';
+import withBookStoreService from '../hoc';
+import {CardPage, HomePage} from '../../pages'
 
 const App = ({bookStoreService}) => {
-    console.log(BookStoreService.getBooks());
-    return <div>App</div>
+    console.log(bookStoreService.getBooks());
+    return (
+        <Switch>
+            <Route path='/' exact component={HomePage}/>
+            <Route path='/card' component={CardPage}/>
+        </Switch>
+    )
 };
 
-export default App;
+export default withBookStoreService()(App);
