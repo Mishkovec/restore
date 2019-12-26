@@ -7,7 +7,7 @@ const App = ({bookStoreService}) => {
     console.log(bookStoreService.getBooks());
     return (
         <Switch>
-            <Route path='/' exact component={HomePage}/>
+            <Route path='/' exact render={()=><HomePage/>}/>
             <Route path='/card' component={CardPage}/>
         </Switch>
     )

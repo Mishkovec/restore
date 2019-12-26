@@ -1,10 +1,10 @@
 import React from 'react';
 import BookList from '../../components/bookList';
 
-const HomePage = () => {
+const HomePage = ({bookStoreService}) => {
     return (
         <div>
-            <BookList books = {[{title:'aaa'}]}/>
+            <BookList/>
         </div>
     )
 }
