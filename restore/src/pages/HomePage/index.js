@@ -1,7 +1,7 @@
 import React from 'react';
-import BookList from '../../components/bookList';
+import BookList from '../../containers/bookList';
 
-const HomePage = ({bookStoreService}) => {
+const HomePage = () => {
     return (
         <div>
             <BookList/>

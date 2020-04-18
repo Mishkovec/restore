@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ErrorIndicator = () => {
-    return <div>ErrorIndicator</div>
+    return <div>Error render this component</div>
 };
 
 export default ErrorIndicator;
