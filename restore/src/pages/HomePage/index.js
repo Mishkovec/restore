@@ -1,10 +1,10 @@
 import React from 'react';
-import BookList from '../../containers/bookList';
+import {BookListContainer} from '../../containers';
 
 const HomePage = () => {
     return (
         <div>
-            <BookList/>
+            <BookListContainer/>
         </div>
     )
 }

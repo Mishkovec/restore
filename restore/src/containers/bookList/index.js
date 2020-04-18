@@ -1,7 +1,7 @@
 import React from 'react';
 import BookListItem from '../../components/bookListItem';
 
-const BookList = () =>  { 
+const BookListContainer = () =>  { 
     const book = {
         title: 'My Book',
         author: 'I'
@@ -14,4 +14,4 @@ const BookList = () =>  {
     )
 }
   
-export default BookList;
+export default BookListContainer;
