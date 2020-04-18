@@ -1,7 +1,8 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 
-const Spinner = () => {
-    return <div>Spinner</div>
+const SpinnerComponent = () => {
+    return <Spinner animation="border" variant="success" />
 };
 
-export default Spinner;
+export default SpinnerComponent;

@@ -1,11 +1,13 @@
 import ErrorIndicator from './errorIndicator';
 import ErrorBoundry from './errorBoundry';
-import Spinner from './spinner';
+import SpinnerComponent from './spinner';
 import BookListItem from './bookListItem';
+import HeaderComponent from './header'
 
 export {
     BookListItem,
     ErrorIndicator,
     ErrorBoundry,
-    Spinner
+    HeaderComponent,
+    SpinnerComponent
 };
