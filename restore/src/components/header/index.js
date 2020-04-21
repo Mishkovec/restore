@@ -4,6 +4,8 @@ import { Nav } from 'react-bootstrap';
 const HeaderComponent = () => {
     return (
         <Nav
+        justify 
+        variant="tabs"
         activeKey="/home"
         // onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
         >

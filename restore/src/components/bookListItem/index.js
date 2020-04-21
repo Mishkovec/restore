@@ -13,8 +13,7 @@ const BookListItem = ({book}) => {
                     Author: {author}
                 </Card.Text>
 
-                <Button variant="success">Add</Button>
-                <Button variant="danger">Remove</Button>
+                <Button variant="success">Add to Cart</Button>
             </Card.Body>
         </Card>   
     )

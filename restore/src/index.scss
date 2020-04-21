@@ -1,1 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
+
+.cartListItem {
+    display: flex;
+    justify-content: space-around;
+}

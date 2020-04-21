@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {CartPage, HomePage} from './pages'
+import {CartPage, HomePage, FormPage} from './pages'
 import './index.scss'
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
         <Router>
             <Switch>
                 <Route path='/' exact render={()=><HomePage/>}/>
-                <Route path='/add-book' component={CartPage}/>
+                <Route path='/add-book' component={FormPage}/>
                 <Route path='/cart' component={CartPage}/>
             </Switch>
         </Router>
