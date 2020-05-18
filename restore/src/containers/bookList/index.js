@@ -1,14 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import BookListItem from '../../components/bookListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../store/books/actions';
 
 const BookListContainer = () =>  { 
-    // const book = {
-    //     title: 'My Book',
-    //     author: 'I'
-    // }
-    const books = [] //useSelector(store.books)
+
+    let books = useSelector(state => state.books.books)
+    console.log('b',books)
+   
 
     const dispatch = useDispatch()
 
@@ -17,9 +16,11 @@ const BookListContainer = () =>  {
     }, [])
 
     return (
-        <div>
-            {
+        <div className='book_list'>
+            { 
+                books.length > 0 &&
                 books.map((item, idx) => {
+                    console.log(item)
                     return <BookListItem key={idx} book={item}/>
                 })
             }

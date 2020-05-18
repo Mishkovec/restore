@@ -1,4 +1,8 @@
 import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS} from './constants'
+import {firebaseConfig} from '../../firestore'
+import firebase from 'firebase'
+
+const app = firebase.initializeApp(firebaseConfig);
 
 export const addBook = (book_obj) => {
    return { 
@@ -16,13 +20,14 @@ export const removeBook = (book_obj) => {
 
 export const getBooks = () => {
     return async dispatch => {
-        const res = await fetch('https://restore-ff535.firebaseio.com/restore-ff535.json', {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-            mode: "cors"
+        let data;
+        app.database().ref().on('value', snap => {
+            data = snap.val()
+            console.log('allbooks', data)
+            // console.log(snap.val())
+            // console.log(snap.toJSON())
+            dispatch({type: GET_BOOKS, payload: data})
         })
-        const data = await res.json()
-        console.log('books', data)
-        dispatch({type: GET_BOOKS, payload: data})
+        // dispatch({type: GET_BOOKS, payload: data})
     } 
 }
