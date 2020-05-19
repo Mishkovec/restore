@@ -4,6 +4,7 @@ import SpinnerComponent from './spinner';
 import BookListItem from './bookListItem';
 import CartListItem from './cartListItem';
 import HeaderComponent from './header'
+import LayoutComponent from './layoutComponent'
 
 export {
     BookListItem,
@@ -11,5 +12,6 @@ export {
     ErrorBoundry,
     HeaderComponent,
     SpinnerComponent,
-    CartListItem
+    CartListItem,
+    LayoutComponent
 };

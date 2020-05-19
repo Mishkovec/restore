@@ -4,8 +4,8 @@
     display: flex;
     justify-content: space-around;
 }
-.book_list {
+.book_list, .info , .btn_block{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }

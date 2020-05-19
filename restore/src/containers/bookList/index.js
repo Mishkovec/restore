@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import BookListItem from '../../components/bookListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../store/books/actions';
+import { Col } from 'react-bootstrap';
 
 const BookListContainer = () =>  { 
 
     let books = useSelector(state => state.books.books)
-    console.log('b',books)
-   
 
     const dispatch = useDispatch()
 
@@ -16,15 +15,14 @@ const BookListContainer = () =>  {
     }, [])
 
     return (
-        <div className='book_list'>
+        <Col md="auto" className='book_list'>
             { 
                 books.length > 0 &&
                 books.map((item, idx) => {
-                    console.log(item)
                     return <BookListItem key={idx} book={item}/>
                 })
             }
-        </div>
+        </Col>
     )
 }
   

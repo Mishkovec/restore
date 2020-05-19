@@ -1,15 +1,15 @@
 import React from 'react';
-import {Col} from 'react-bootstrap'
-import {CartListContainer} from '../../containers';
+import { Col } from 'react-bootstrap';
+import {BookInfoContainer} from '../../containers';
 import { LayoutComponent } from '../../components';
 
-const CartPage = () => {
+const BookInfoPage = () => {
     return (
         <LayoutComponent>
             <Col>
-                <CartListContainer/>
+                <BookInfoContainer/>
             </Col>
         </LayoutComponent>
     )
 }
-export default CartPage;
+export default BookInfoPage;

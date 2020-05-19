@@ -1,8 +1,5 @@
-import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS} from './constants'
-import {firebaseConfig} from '../../firestore'
-import firebase from 'firebase'
-
-const app = firebase.initializeApp(firebaseConfig);
+import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO} from './constants'
+import {app} from '../../firestore'
 
 export const addBook = (book_obj) => {
    return { 
@@ -14,6 +11,13 @@ export const addBook = (book_obj) => {
 export const removeBook = (book_obj) => {
     return { 
          type: REMOVE_BOOK,
+         payload: book_obj
+     }
+ }
+
+ export const setBookInfo = (book_obj) => {
+    return { 
+         type: SET_BOOK_INFO,
          payload: book_obj
      }
  }
