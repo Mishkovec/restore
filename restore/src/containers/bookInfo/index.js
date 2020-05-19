@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const BookInfoContainer = () =>  {
     const book = useSelector(state => state.books.bookInfo)
-    const {title, author, img, id, longDescription, pageCount, thumbnailUrl} = book;
+    const {title, author, img, id, longDescription, pageCount, thumbnailUrl, price} = book;
   
     return (
         <Card style={{margin: '10px'}}>
@@ -19,6 +19,10 @@ const BookInfoContainer = () =>  {
 
                         <Card.Text>
                             Количество страниц: {pageCount}
+                        </Card.Text>
+
+                        <Card.Text>
+                            Цена: {price}
                         </Card.Text>
                     </div>
                     <Card.Img variant="top" src={thumbnailUrl} style={{margin: '10px', width: '150px'}}/>

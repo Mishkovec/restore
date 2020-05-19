@@ -5,7 +5,7 @@ import {A} from 'hookrouter';
 import {setBookInfo} from '../../store/books/actions'
 
 const BookListItem = ({book}) => {
-    const {title, author, img, id, thumbnailUrl} = book;
+    const {title, author, img, id, thumbnailUrl, price} = book;
     const dispatch = useDispatch()
     
     return (   
@@ -15,6 +15,10 @@ const BookListItem = ({book}) => {
                 <Card.Title><b>{title}</b></Card.Title>
                 <Card.Text>
                     Автор: {author}
+                </Card.Text>
+
+                <Card.Text>
+                    Цена: {price}
                 </Card.Text>
 
                 <div className='btn_block'>

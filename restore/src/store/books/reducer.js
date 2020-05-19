@@ -1,4 +1,4 @@
-import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO} from './constants'
+import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO, CREATE_BOOK} from './constants'
 
 const initialState = {
     books: [],
@@ -26,6 +26,11 @@ export const bookReducer = (state=initialState, action) => {
             return {
                 ...state, 
                 bookInfo: action.payload,
+                }
+        case CREATE_BOOK: 
+            return {
+                ...state, 
+                books: [...state.books, action.payload],
                 }
         default: 
             return state
