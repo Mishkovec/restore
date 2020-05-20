@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { v4 as uuidv4 } from 'uuid';
 import {useDispatch} from 'react-redux'
 import {createBook} from '../../store/books/actions'
+import {useHistory} from 'react-router-dom'
 
 const FormContainer = () =>  { 
     const [title, setTitle] = useState('')
@@ -13,6 +14,7 @@ const FormContainer = () =>  {
     const [pageNum, setPageNum] = useState('')
 
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const id = uuidv4()
 
@@ -20,6 +22,7 @@ const FormContainer = () =>  {
         const book = {id, title, author, price, thumbnailUrl: url, longDescription: description, pageCount: pageNum}
         dispatch(createBook(book))
         console.log(book)
+        history.replace('/')
     }
 
     return (

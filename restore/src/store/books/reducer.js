@@ -1,17 +1,8 @@
-import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO, CREATE_BOOK} from './constants'
+import {REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO, CREATE_BOOK} from './constants'
+import {AppState} from '../../store'
 
-const initialState = {
-    books: [],
-    bookInfo: {}
-}
-
-export const bookReducer = (state=initialState, action) => {
+export const bookReducer = (state=AppState, action) => {
     switch (action.type){
-        case ADD_BOOK: 
-            return {
-                ...state, 
-                books: [...state.book, action.payload], 
-                }
         case REMOVE_BOOK: 
             return {
                 ...state, 

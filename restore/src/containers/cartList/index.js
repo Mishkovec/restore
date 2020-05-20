@@ -1,17 +1,17 @@
 import React from 'react';
 import {CartListItem} from '../../components'
+import {useSelector} from 'react-redux'
 
 const CartListContainer = () =>  { 
-
-    const book = {
-        title: 'My Book',
-        author: 'I',
-        amount: 1
-    }
+    const books = useSelector( state => state.cart.cartBooks)
 
     return (
         <div>
-            <CartListItem book={book}/>
+            {   books.length > 0 &&
+                books.map( item => {
+                    return <CartListItem book={item}/>
+                })
+            }
         </div>
     )
 }

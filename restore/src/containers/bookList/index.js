@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import BookListItem from '../../components/bookListItem';
+import {BookListItem} from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../store/books/actions';
 import { Col } from 'react-bootstrap';
@@ -10,9 +10,9 @@ const BookListContainer = () =>  {
 
     const dispatch = useDispatch()
 
-    useEffect(()=> {
-        dispatch(getBooks())
-    }, [])
+    // useEffect(()=> {
+    //     dispatch(getBooks())
+    // }, [])
 
     return (
         <Col md="auto" className='book_list'>

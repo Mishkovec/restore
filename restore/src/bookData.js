@@ -1,4 +1,4 @@
-[
+export const bookData = [
     {
         "title": "Unlocking Android",
         "isbn": "1933988673",

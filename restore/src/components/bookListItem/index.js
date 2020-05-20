@@ -1,12 +1,15 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import {A} from 'hookrouter';
+import {useHistory} from 'react-router-dom'
+
 import {setBookInfo} from '../../store/books/actions'
+import {addToCart} from '../../store/cart/actions'
 
 const BookListItem = ({book}) => {
     const {title, author, img, id, thumbnailUrl, price} = book;
     const dispatch = useDispatch()
+    const history = useHistory()
     
     return (   
         <Card style={{ width: '18rem', margin: '10px'}}>
@@ -22,18 +25,22 @@ const BookListItem = ({book}) => {
                 </Card.Text>
 
                 <div className='btn_block'>
-                    <Button variant="success">В корзину</Button>
+                    <Button 
+                        variant="success"
+                        onClick = {()=> {dispatch(addToCart(id))}}
+                    >В корзину</Button>
                 
-                    <A href={`/book-info/${id}`}>
-                        <Button variant="info" onClick={()=>dispatch(setBookInfo(book))}>
-                            Описание
-                        </Button>
-                    </A>
+                    
+                    <Button variant="info" onClick={()=>{
+                        dispatch(setBookInfo(book))
+                        history.replace(`/book-info/${id}`)
+                    }}>
+                        Описание
+                    </Button>
+                    
                 </div>
             </Card.Body>
         </Card>   
     )
 }
 export default BookListItem;
-
-// <Button variant="info" onClick={()=> {history.replace('/book-info')}}>Описание</Button>
