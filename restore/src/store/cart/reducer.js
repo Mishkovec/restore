@@ -12,7 +12,7 @@ export const cartReducer = (state=AppState, action) => {
         case REMOVE_FROM_CART: 
             return {
                 ...state, 
-                cartBooks: state.books.filter(item => item.id != action.payload),  
+                cartBooks: state.cartBooks.filter(item => item.id != action.payload),  
                 }
         case ORDER: 
             return {
