@@ -1,20 +1,17 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import {useDispatch} from 'react-redux'
-import {addToCart, removeFromCart} from '../../store/cart/actions'
+import {addToCart, removeFromCart} from '../../store/books/actions'
 
 const CartListItem = ({book}) => {
-    const {title, author, img, amount, id, price} = book;
+    const {title, amount, id, price} = book;
     const dispatch = useDispatch()
     
     return (   
         <Card>
             <Card.Body  className='cartListItem'>
                 <Card.Title>Title: {title}</Card.Title>
-                <Card.Text>
-                    Author: {author}
-                </Card.Text>
-
+                
                 <Card.Text>
                     Amount: {amount}
                 </Card.Text>

@@ -1,18 +1,12 @@
-import {ADD_BOOK, REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO, CREATE_BOOK} from './constants'
+import {REMOVE_BOOK, GET_BOOKS, SET_BOOK_INFO, CREATE_BOOK , ADD_TO_CART, REMOVE_FROM_CART, ORDER} from './constants'
 import {app} from '../../firestore'
 import {bookData} from '../../bookData'
 
-export const addBook = (book_obj) => {
-   return { 
-        type: ADD_BOOK,
-        payload: book_obj
-    }
-}
 
-export const removeBook = (book_obj) => {
+export const removeBook = (id) => {
     return { 
          type: REMOVE_BOOK,
-         payload: book_obj
+         id
      }
  }
 
@@ -54,5 +48,25 @@ export const getBooks = () => {
     return { 
         type: GET_BOOKS,
         payload: bookData
+    }
+}
+
+export const addToCart = (id) => {
+    return { 
+        type: ADD_TO_CART,
+        id
+    }
+}
+
+export const removeFromCart = (id) => {
+    return { 
+        type: REMOVE_FROM_CART,
+        id
+    }
+}
+
+export const order = () => {
+    return { 
+        type: ORDER,
     }
 }

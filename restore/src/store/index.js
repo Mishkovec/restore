@@ -46,5 +46,5 @@ export const AppState = {
 
 export const rootReducer = combineReducers({
     books: bookReducer, 
-    cart: cartReducer
+    // cart: cartReducer
 })

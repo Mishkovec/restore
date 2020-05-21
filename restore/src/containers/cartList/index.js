@@ -3,7 +3,7 @@ import {CartListItem} from '../../components'
 import {useSelector} from 'react-redux'
 
 const CartListContainer = () =>  { 
-    const books = useSelector( state => state.cart.cartBooks)
+    const books = useSelector( state => state.books.cartBooks)
 
     return (
         <div>

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { removeBook, addToCart } from '../../store/books/actions';
+import {useHistory} from 'react-router-dom'
 
 const BookInfoContainer = () =>  {
     const book = useSelector(state => state.books.bookInfo)
     const {title, author, img, id, longDescription, pageCount, thumbnailUrl, price} = book;
+    const dispatch = useDispatch()
+    const history = useHistory()
   
     return (
         <Card style={{margin: '10px'}}>
@@ -32,7 +36,14 @@ const BookInfoContainer = () =>  {
                     Описание: {longDescription}
                 </Card.Text>
 
-                <Button variant="success">Добавить в корзину</Button>
+                <Button variant="success" onClick={()=> dispatch(addToCart(id))}>Добавить в корзину</Button>
+                <Button 
+                    variant="danger" 
+                    onClick={()=> {
+                        dispatch(removeBook(id))
+                        history.replace('/')
+                    }}
+                >Удалить книгу</Button>
             </Card.Body>
         </Card>   
     )
