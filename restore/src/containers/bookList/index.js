@@ -18,8 +18,8 @@ const BookListContainer = () =>  {
         <Col md="auto" className='book_list'>
             { 
                 books.length > 0 &&
-                books.map((item, idx) => {
-                    return <BookListItem key={idx} book={item}/>
+                books.map(item => {
+                    return <BookListItem key={item.id} book={item}/>
                 })
             }
         </Col>

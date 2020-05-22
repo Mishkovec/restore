@@ -41,9 +41,8 @@ export const bookReducer = (state=initialState, action) => {
                 }
         case ADD_TO_CART:
             const book = state.books.find(item => item.id == action.id)
-            const index = state.cartBooks.findIndex(({id}) => id == action.id)
+            const index = state.cartBooks.findIndex(item => item.id == action.id)
             const item = state.cartBooks[index]
-
             let newItem; 
             if (item) {
                 newItem = {
@@ -52,6 +51,7 @@ export const bookReducer = (state=initialState, action) => {
                 }
             } else {
                 newItem = {
+                    id: book.id,
                     amount: 1,
                     title: book.title,
                     price: book.price
@@ -75,13 +75,28 @@ export const bookReducer = (state=initialState, action) => {
             }
         case REMOVE_FROM_CART: 
             const r_index = state.cartBooks.findIndex(item => item.id == action.id)
-            return {
-                ...state, 
-                cartBooks: [
-                    ...state.cartBooks.slice(0, r_index),
-                    ...state.cartBooks.slice(r_index +1)
-                ],  
+            let r_item = state.cartBooks[r_index]
+            if (r_item.amount > 1) {
+                return {
+                    ...state,
+                    cartBooks: [
+                        ...state.cartBooks.slice(0, r_index),
+                        {
+                            ...r_item, 
+                            amount: r_item.amount -1
+                        },
+                        ...state.cartBooks.slice(r_index +1)
+                    ],  
                 }
+            } else {
+                return {
+                    ...state, 
+                    cartBooks: [
+                        ...state.cartBooks.slice(0, r_index),
+                        ...state.cartBooks.slice(r_index +1)
+                    ],  
+                }
+            }
         case ORDER: 
             return {
                 ...state, 
