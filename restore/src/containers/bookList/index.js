@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {BookListItem} from '../../components';
+import {BookListItem, ErrorBoundry} from '../../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../store/books/actions';
 import { Col } from 'react-bootstrap';
@@ -19,7 +19,9 @@ const BookListContainer = () =>  {
             { 
                 books.length > 0 &&
                 books.map(item => {
-                    return <BookListItem key={item.id} book={item}/>
+                    return <ErrorBoundry key={item.id}>
+                                <BookListItem key={item.id} book={item}/>
+                           </ErrorBoundry>
                 })
             }
         </Col>

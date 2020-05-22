@@ -1,11 +1,18 @@
 @import "~bootstrap/scss/bootstrap";
 
-.cartListItem {
+.cartListItem, .order{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .book_list, .info , .btn_block{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+.link {
+    padding: 10px;
+    margin: 0 10px
+}
+.order {
+    margin: 10px 0;
 }

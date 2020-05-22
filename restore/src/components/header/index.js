@@ -6,9 +6,9 @@ const HeaderComponent = () => {
     return (
         <Navbar bg="light" style={{width: '100%'}} sticky="top">
             <Nav className="mr-auto">
-                <Link to="/">Список книг</Link>
-                <Link to='/add-book'>Добавить книгу</Link>
-                <Link to='/cart'>Корзина</Link>
+                <Link to="/" className='link'>Список книг</Link>
+                <Link to='/add-book' className='link'>Добавить книгу</Link>
+                <Link to='/cart' className='link'>Корзина</Link>
             </Nav>
         </Navbar>
     )

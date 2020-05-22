@@ -48,6 +48,7 @@ export const bookReducer = (state=initialState, action) => {
                 newItem = {
                     ...item,
                     amount: item.amount + 1,
+                    price: item.price + book.price
                 }
             } else {
                 newItem = {
@@ -62,6 +63,7 @@ export const bookReducer = (state=initialState, action) => {
                 return {
                     ...state, 
                     cartBooks: [...state.cartBooks, newItem], 
+                    totalPrice: state.totalPrice + book.price
                     }
             } else {
                 return {
@@ -70,10 +72,12 @@ export const bookReducer = (state=initialState, action) => {
                     ...state.cartBooks.slice(0, index),
                     newItem,
                     ...state.cartBooks.slice(index+1)
-                    ]
+                    ],
+                totalPrice: state.totalPrice + book.price
                 }
             }
         case REMOVE_FROM_CART: 
+            const book1 = state.books.find(({id}) => id == action.id)
             const r_index = state.cartBooks.findIndex(item => item.id == action.id)
             let r_item = state.cartBooks[r_index]
             if (r_item.amount > 1) {
@@ -83,10 +87,12 @@ export const bookReducer = (state=initialState, action) => {
                         ...state.cartBooks.slice(0, r_index),
                         {
                             ...r_item, 
-                            amount: r_item.amount -1
+                            amount: r_item.amount -1,
+                            price: r_item.price - book1.price
                         },
                         ...state.cartBooks.slice(r_index +1)
                     ],  
+                    totalPrice: state.totalPrice - book1.price
                 }
             } else {
                 return {
@@ -95,12 +101,14 @@ export const bookReducer = (state=initialState, action) => {
                         ...state.cartBooks.slice(0, r_index),
                         ...state.cartBooks.slice(r_index +1)
                     ],  
+                    totalPrice: state.totalPrice - r_item.price
                 }
             }
         case ORDER: 
             return {
                 ...state, 
                 cartBooks: [], 
+                totalPrice: 0
                 }
         default: 
             return state

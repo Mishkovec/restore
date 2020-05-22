@@ -8,7 +8,7 @@ const CartListItem = ({book}) => {
     const dispatch = useDispatch()
     
     return (   
-        <Card>
+        <Card style={{margin: "10px"}}>
             <Card.Body  className='cartListItem'>
                 <Card.Title>Title: {title}</Card.Title>
                 
